@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FORMULARIO-CURRICULUM VITAE</title>
+	<link rel="stylesheet" type="text/css" href="Isis_Tovar_26834873.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans|Josefin+Slab&display=swap">
+	<script type="text/javascript" src="jquery-1.12.4.min.js"></script>
+</head>
+<body>
+<form action="recibir_formulario.php" method="post" name="formulario">
+
+<header><center>
+	<h1>CURRICULUM VITAE</h1>
+	<h3>Registro de Informaci&oacuten</h3>
+</center></header>
+
+<div class="contenedor">
+
+	<div class="info_personal">
+	<h3>Informaci&oacuten personal</h3>
+	<table>
+		<tr>
+			<td>Nombres<br>
+			<input type="text" name="nombres" id="nombres" placeholder="Introduzca sus nombres" title="Introduzca sus nombres" required="required" size="40"><br><br>
+			</td>
+		</tr>
+		<tr>
+			<td>Apellidos<br>
+			<input type="text" name="apellidos" id="apelldos" placeholder="Introduzca sus apellidos" title="Introduzca sus apellidos" required="required" size="40"><br><br>
+			</td>
+		</tr>
+		<tr>
+			<td>Edad<br>
+			<input type="text" name="edad" id="edad" placeholder="Introduzca su Edad" title="Introduzca su Edad" required="required" maxlength="2" size="15"><br><br>
+			</td>
+		</tr>
+		<tr>
+			<td>C.I<br>
+			<select name="nacionalidad" id="nacionalidad">
+				<option value="V" title="Venezolan@">V</option>
+				<option value="E" title="Exranjer@">E</option>
+			</select>
+			<input type="number" name="c_i" id="c_i" placeholder="Introduzca su cedula" title="Introduzca su cedula" required="required" size="20"><br><br>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			N&uacutemero Telefonico<br>  
+			<input type="text" name="telefono" id="telefono" placeholder="Ejm: 0412-0000000" title="Introduzca su teletefono" required="required" size="40"><br><br>
+			</td>
+		</tr>
+		<tr>
+			<td>Correo Electr&oacutenico<br>  
+			<input type="email" name="email" id="email" placeholder="Ejm: ejemplo@gmail.com" title="Introduzca Correo Electronico" required="required" size="40"><br><br>
+			</td>
+		</tr>
+		<tr>
+			<td>Estado civil<br>
+			<table id="edo_civil">
+			<tr>
+				<td>Soltero</td>
+				<td>
+					<input type="radio" name="estado_civil" checked="checked" value="soltero" required="required" size="40">
+				</td>
+				<td>Casado</td>
+				<td>
+					<input type="radio" name="estado_civil" checked="checked" value="casado" required="required" size="40">
+				</td>
+			</tr><tr>
+				<td>Divorciado</td>
+				<td>
+					<input type="radio" name="estado_civil" checked="checked" value="divorciad" required="required" size="40">
+				</td>
+				<td>Viudo</td>
+				<td>
+					<input type="radio" name="estado_civil" checked="checked" value="viudo" required="required" size="40"><br><br>
+				</td></tr>
+		</table>  
+			</td>
+		</tr>
+		<tr>
+			<td>Direcci&oacuten<br>
+			<textarea type="text" name="direccion" id="direccion" placeholder="Introduzca su direccion actual" title="Introduzca su direccion" required="required" rows="5" cols="40"></textarea><br><br>
+			</td>
+		</tr>
+	</table>
+	</div>
+
+	<div class="form_academica">
+	<h3>Formaci&oacuten Acad&eacutemica</h3>
+	<h4>T&iacutetulo de Bachiller</h4>
+		<table>
+			<tr>
+				<td>Unidad Educativa<br>
+					<input type="text" name="Unidad_edu" id="unidad_edu" placeholder="Introduzca nombre de la Unidad educativa" title="Unidad educativa en que curso" required="required" size="40"><br><br>
+				</td>
+			</tr>
+			<tr>
+				<td>A&ntildeo de culminaci&oacuten<br>
+					<input type="text" name="Año_culm_b" id="Año_culm_b" placeholder="Año de culminacion" title="Introduzca el año" required="required" maxlength="4" size="15"><br><br>
+				</td>
+			</tr>
+		</table>
+		<h4>T&iacutetulo Universitario</h4>
+
+		<table>
+			<tr>
+				<td>T&iacutetulo Universitario<br>
+					<textarea type="text" name="Titulo" id="titulo_uni" placeholder="Introduzca su Titulo Universitario" title="Introduzca su Titulo Universitario" required="required" rows="5" cols="40"></textarea><br><br>
+				</td>
+			</tr>
+			<tr>
+				<td>Universidad<br>
+				<input type="text" name="Universidad" id="universidad" placeholder="Introduzca nombre de la Universidad" title="Universidad en que curso" required="required" size="40"><br><br>
+				</td>
+			</tr>
+			<tr>
+				<td>A&ntildeo de culminaci&oacuten<br>
+					<input type="text" name="año_culm_u" id="año_culm_u" placeholder="Año de culminacion" title="Introduzca el año" required="required" maxlength="4" size="15"><br><br>
+				</td>
+			</tr>
+			<tr><td>
+				<input type="button" name="add" id="add_titulo" value="Agregar titulo profesional" title="Agregar otro titulo" style="background-color: #14A709"><br><br>
+
+				<table id="otros_titulos">   
+				
+				</table>
+
+			</td></tr>
+		</table>
+		</div>
+
+		<div class="form_complementaria">
+		<h3>Formaci&oacuten Complementaria</h3>
+		<b>Cursos<hr></b>
+		<table>
+			<tr>
+				<td>Nombre del Curso<br>
+					<textarea type="text" name="nom_curso" id="nom_curso" placeholder="Introduzca el nombre del curso" title="Introduzca nombre del curso" required="required" rows="5" cols="40"></textarea><br><br>
+				</td>
+			</tr>
+			<tr>
+				<td>Lugar<br>
+					<input type="text" name="Lugar" id="lugar_curso" placeholder="Introduzca el lugar donde relizo el curso " title="Lugar en que realizo el curso" required="required" size="40"><br><br>
+				</td>
+			</tr>
+			<tr>
+				<td>Fecha<br>
+					<input type="month" name="fecha_curso" title="Fecha en que realizó el curso" required="required"><br><br>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="button" name="add" id="add_curso" value="Agregar curso" title="Agregar curso" style="background-color: #14A709"><br><br>
+					<table id="otros_cursos">
+				
+					</table>
+				</td>
+			</tr>
+		</table>
+		<h4>Seminarios y/o Congresos<hr></h4>
+		<table>
+			<tr>
+				<td>Nombre del Seminario o Congreso<br>
+					<textarea type="text" name="nom_soc" id="nom_soc" placeholder="Introduzca el nombre del seminario o congreso" title="Introduzca nombre" required="required" rows="5" cols="40"></textarea><br><br>
+				</td>
+			</tr>
+			<tr>
+				<td>Lugar<br>
+					<input type="text" name="lugar_soc" id="lugar_soc" placeholder="Introduzca el lugar" title="Lugar en que realizo el seminario o congreso" required="required" size="40"><br><br>
+				</td>
+			</tr>
+			<tr>
+				<td>Fecha<br>
+					<input type="month" name="fecha_soc" title="Fecha en que realizo el seminario o congreso" required="required"><br><br>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="button" name="add" id="add_soc" value="Agregar seminario o congreso" title="Agregar seminario o congreso" style="background-color: #14A709"><br><br>
+						<table id="otros_soc">
+				
+						</table>
+				</td>
+			</tr>
+		</table>
+		</div>
+
+		<div class="exp_profesional">
+		<h3>Experiencia profesional</h3>
+		<table>
+			<tr>
+				<td>Nombre de la Empresa <br>
+					<input type="text" name="nom_empresa" id="nom_empresa" placeholder="Introduzca el nombre de la empresa" title="Introduzca el nombre de la empresa en que trabajó" required="required" size="40"><br><br>
+				</td>
+			</tr>
+			<tr>
+				<td>&Aacuterea de Trabajo<br>
+					<input type="text" name="area" id="area" placeholder="Introduzca el area en que trabajo" title="Introduzca el area en que trabajo " required="required" size="40"><br><br>
+				</td>
+			</tr>
+			<tr>
+				<td>Fecha de Ingreso<br>
+					<input type="date" name="fecha_ingreso" id="fecha_ingreso" title="Introduzca fecha de Ingreso" required="required"><br><br>
+				</td>
+			</tr>
+			<tr>
+				<td>Fecha de Egreso<br>
+					<input type="date" name="fecha_egreso" id="fecha_egreso" title="Introduzca fecha de Egreso" required="required"><br><br>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="button" name="add" id="add_exp" value="Agregar experiencia profesional" title="Agregar experiencia profesional" style="background-color: #14A709"><br><br>
+						<table id="otros_exp">
+				
+						</table>
+				</td>
+			</tr>
+		</table>
+		</div>
+
+		<div class="ref_personales">
+		<h3>Referencias Personales</h3>
+		<table>
+			<tr>
+				<td>Nombre y Apelliddo<br>
+					<input type="text" name="nom_ref" id="nom_ref" placeholder="Introduzca nombre y apellido de la referencia" title="Introduzca el nombre y apellido de su referencia" required="required" size="40"><br><br>
+				</td>
+			</tr>
+			<tr>
+				<td>N&uacutemero Telef&oacutenico<br>
+					<input type="text" name="tlf_ref" id="tlf_ref" placeholder="Ejm: 0412-0000000" title="Introduzca el tel&eacutefono de su referencia" required="required" size="40"><br><br>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="button" name="add" id="add_ref" value="Agregar referencia personal" title="Agregar referencia personal" style="background-color: #14A709"><br><br>
+						<table id="otros_ref">
+				
+						</table>
+				</td>
+			</tr>
+		</table>
+		</div>
+
+		<input class="botton" type="submit" name="enviar" value="Enviar">
+		<input class="botton" type="reset" name="borrar" value="Limpiar">
+
+
+
+</div>
+</form>
+</body>
+</html>
+
+
+<script>
+	var i=1;
+	$("#add_titulo").on('click',function(event){
+		$("#otros_titulos").append('<tr id="f1'+i+'"><td>T&iacutetulo Universitario<br><textarea type="text" name="Titulo" id="titulo_uni" placeholder="Introduzca su Titulo Universitario" title="Introduzca su Titulo Universitario" required="required" rows="5" cols="40"></textarea><br><br></td></tr><tr id="f2'+i+'"><td>Universidad<br><input type="text" name="Universidad" id="universidad" placeholder="Introduzca nombre de la Universidad" title="Universidad en que curso" required="required" size="40"><br><br></td></tr><tr id="f3'+i+'"><td>A&ntildeo de culminaci&oacuten<br><input type="text" name="año_culm_u" id="año_culm_u" placeholder="Año de culminacion" title="Introduzca el año" required="required" maxlength="4" size="15"><br><br><input type="button" name="borrartitulo" value="Borrar titulo" style="background-color:red" onclick="borrar_titulo('+i+')"><br><br></td></tr>');
+		i++;
+	});
+	function borrar_titulo(i){
+		var nombre_f1="#f1";
+		var num="";
+		//---
+		var num_f1=i;
+		num=num_f1.toString();
+		var f1=nombre_f1.concat(num);
+		$(""+f1+"").empty();
+
+		var nombre_f2="#f2";
+		var num="";
+		//---
+		var num_f2=i;
+		num=num_f2.toString();
+		var f2=nombre_f2.concat(num);
+		$(""+f2+"").empty();
+
+		var nombre_f3="#f3";
+		var num="";
+		//---
+		var num_f3=i;
+		num=num_f3.toString();
+		var f3=nombre_f3.concat(num);
+		$(""+f3+"").empty();
+	};
+
+</script>
+<script>
+	var i=1;
+	$("#add_curso").on('click',function(event){
+		$("#otros_cursos").append('<tr id="f1'+i+'"><td>Nombre del Curso<br><textarea type="text" name="nom_curso" id="nom_curso" placeholder="Introduzca el nombre del curso" title="Introduzca nombre del curso" required="required" rows="5" cols="40"></textarea></td></tr><tr id="f2'+i+'"><td>Lugar<br><input type="text" name="Lugar" id="lugar_curso" placeholder="Introduzca el lugar donde relizo el curso " title="Lugar en que realizo el curso" required="required" size="40"></td></tr><tr id="f3'+i+'"><td>Fecha<br><input type="month" name="fecha_curso" title="Fecha en que realizo el curso" required="required"><br><br><input type="button" name="borrarcurso" value="Borrar curso" style="background-color:red" onclick="borrar_curso('+i+')"><br><br></td></tr>');
+		i++;
+	});
+	function borrar_curso(i){
+		var nombre_f1="#f1";
+		var num="";
+		//---
+		var num_f1=i;
+		num=num_f1.toString();
+		var f1=nombre_f1.concat(num);
+		$(""+f1+"").empty();
+
+		var nombre_f2="#f2";
+		var num="";
+		//---
+		var num_f2=i;
+		num=num_f2.toString();
+		var f2=nombre_f2.concat(num);
+		$(""+f2+"").empty();
+
+		var nombre_f3="#f3";
+		var num="";
+		//---
+		var num_f3=i;
+		num=num_f3.toString();
+		var f3=nombre_f3.concat(num);
+		$(""+f3+"").empty();
+	};
+
+</script>
+<script>
+	var i=1;
+	$("#add_soc").on('click',function(event){
+		$("#otros_soc").append('<tr id="f1'+i+'"><td>Nombre del Seminario o Congreso<br><textarea type="text" name="nom_soc" id="nom_soc" placeholder="Introduzca el nombre del seminario o congreso" title="Introduzca nombre" required="required" rows="5" cols="40"></textarea><br><br></td></tr><tr id="f2'+i+'"><td>Lugar<br><input type="text" name="lugar_soc" id="lugar_soc" placeholder="Introduzca el lugar" title="Lugar en que realizo el seminario o congreso" required="required" size="40"><br><br></td></tr><tr id="f3'+i+'"><td>Fecha<br><input type="month" name="fecha_soc" title="Fecha en que realizo el seminario o congreso" required="required"><br><br><input type="button" name="borrarsoc" value="Borrar seminario o congreso" style="background-color:red" onclick="borrar_soc('+i+')"><br><br></td></tr>');
+		i++;
+	});
+	function borrar_soc(i){
+		var nombre_f1="#f1";
+		var num="";
+		//---
+		var num_f1=i;
+		num=num_f1.toString();
+		var f1=nombre_f1.concat(num);
+		$(""+f1+"").empty();
+
+		var nombre_f2="#f2";
+		var num="";
+		//---
+		var num_f2=i;
+		num=num_f2.toString();
+		var f2=nombre_f2.concat(num);
+		$(""+f2+"").empty();
+
+		var nombre_f3="#f3";
+		var num="";
+		//---
+		var num_f3=i;
+		num=num_f3.toString();
+		var f3=nombre_f3.concat(num);
+		$(""+f3+"").empty();
+	};
+
+</script>
+<script type="text/javascript">
+	var i=1;
+	$("#add_exp").on('click',function(event){
+		$("#otros_exp").append('<tr id="f1'+i+'"><td>Nombre de la Empresa <br><input type="text" name="nom_empresa" id="nom_empresa" placeholder="Introduzca el nombre de la empresa" title="Introduzca el nombre de la empresa en que trabajo" required="required" size="40"><br><br></td></tr><tr id="f2'+i+'"><td>&Aacuterea de Trabajo<br><input type="text" name="area" id="area" placeholder="Introduzca el area en que trabajo" title="Introduzca el area en que trabajo " required="required" size="40"><br><br></td></tr><tr id="f3'+i+'"><td>Fecha de Ingreso<br><input type="date" name="fecha_ingreso" id="fecha_ingreso" title="Introduzca fecha de Ingreso" required="required"><br><br></td></tr><tr id="f4'+i+'"><td>Fecha de Egreso<br><input type="date" name="fecha_egreso" id="fecha_egreso" title="Introduzca fecha de Egreso" required="required"><br><br><input type="button" name="borrarsoc" value="Borrar seminario o congreso" style="background-color:red" onclick="borrar_exp('+i+')"><br><br></td></tr>');
+		i++;
+	});
+	function borrar_exp(i){
+		var nombre_f1="#f1";
+		var num="";
+		//---
+		var num_f1=i;
+		num=num_f1.toString();
+		var f1=nombre_f1.concat(num);
+		$(""+f1+"").empty();
+
+		var nombre_f2="#f2";
+		var num="";
+		//---
+		var num_f2=i;
+		num=num_f2.toString();
+		var f2=nombre_f2.concat(num);
+		$(""+f2+"").empty();
+
+		var nombre_f3="#f3";
+		var num="";
+		//---
+		var num_f3=i;
+		num=num_f3.toString();
+		var f3=nombre_f3.concat(num);
+		$(""+f3+"").empty();
+
+		var nombre_f4="#f4";
+		var num="";
+		//---
+		var num_f4=i;
+		num=num_f4.toString();
+		var f4=nombre_f4.concat(num);
+		$(""+f4+"").empty();
+	};
+
+</script>
+<script>
+	var i=1;
+	$("#add_ref").on('click',function(event){
+		$("#otros_ref").append('<tr id="f1'+i+'"><td>Nombre y Apelliddo<br><input type="text" name="nom_ref" id="nom_ref" placeholder="Introduzca nombre y apellido de la referencia" title="Introduzca el nombre y apellido de su referencia" required="required" size="40"><br><br></td></tr><tr id="f2'+i+'"><td>Número Telefónico<br><input type="text" name="tlf_ref" id="tlf_ref" placeholder="Ejm: 0412-0000000" title="Introduzca el teléfono de su referencia" required="required" size="40"><br><br><input type="button" name="borrarref" value="Borrar referencia personal" style="background-color:red" onclick="borrar_ref('+i+')"><br><br></td></tr>');
+		i++;
+	});
+	function borrar_ref(i){
+		var nombre_f1="#f1";
+		var num="";
+		//---
+		var num_f1=i;
+		num=num_f1.toString();
+		var f1=nombre_f1.concat(num);
+		$(""+f1+"").empty();
+
+		var nombre_f2="#f2";
+		var num="";
+		//---
+		var num_f2=i;
+		num=num_f2.toString();
+		var f2=nombre_f2.concat(num);
+		$(""+f2+"").empty();
+	};
+
+</script>
