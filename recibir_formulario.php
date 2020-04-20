@@ -7,7 +7,7 @@ extract($_REQUEST);
 $db=new clasedb();
 $con=$db->conectar();
 $sql="INSERT INTO datos_personales VALUES(NULL,'".$nombres."','".$apellidos."','".$c_i."')";
-$resultado=mysqli_query($con,$sql);
+$resultado= mysqli_query($con,$sql);
 
 ?>
 <!DOCTYPE html>
@@ -17,7 +17,7 @@ $resultado=mysqli_query($con,$sql);
 </head>
 <body>
 <?php
-if($resultado){
+if($resultado) {
 	?>
 	<b>Registro ingresado ---> <a href="index.php">Volver</a></b>
 	<?php
