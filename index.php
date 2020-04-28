@@ -8,7 +8,7 @@
 	<ul>
 		<li><a href="Isis_Tovar_26834873.html">Formulario</a></li>
 		<li><a href="./personas/PersonasControlador.php?operacion=index">Personas</a></li>
-		<li><a href="#"></a>Módulo 3</li>
+		<li><a href="./modulo">Módulo 3</a></li>
 	</ul>
 
 </body>

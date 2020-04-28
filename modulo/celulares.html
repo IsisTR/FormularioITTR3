@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Modulo Celulares</title>
+	<link rel="stylesheet" type="text/css" href="celulares.css">
+</head>
+
+<body>
+
+<form action="recibir_formulario.php" method="post" name="formulario">
+<section>
+	<header>
+		<div class="container logo-nav-container">
+			<h2 class="logo">MODULO CELULARES</h2>
+			<nav class="navigation">
+				<ul>
+					<li><a href="celulares.html">Registro/Celulares</a></li>
+         			<li><a href="./personas/PersonasControlador.php?operacion=index">Inventario</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<article>
+					
+			<table class="tab">
+				<tr>
+					<td>Nombre<br>
+					<input type="text" name="nombre" title="Introduzca nombre del celular" placeholder="Nombre del celular" size="35">
+					</td>
+				</tr>
+				<tr>
+					<td>Modelo<br>
+						<input type="text" name="modelo" title="Introduzca modelo del celular" placeholder="Modelo del celular" size="35">
+					</td>
+				</tr>
+				<tr>
+					<td>Marca<br>
+						<input type="text" name="marca" title="Introduzca marca del celular" placeholder="Marca del celular" size="35">
+					</td>
+				</tr>
+				<tr>
+					<td>Caracteristicas<br>
+						<textarea name="caracteristicas" placeholder="Caracteristicas del celular" title="Introduzca caracteristicas del celular"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>Precio<br>
+						<input type="number" name="precio" placeholder="Precio del celular" title="Introduzca precio del celular" size="35">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<center><input type="reset" name="limpiar" value="Limpiar" style="background-color: #DF0000" class="botton"> <input type="submit" name="enviar" value="Enviar" style="background-color: #08C813" class="botton"><center>
+					</td>
+				</tr>
+			</table>
+		
+	</article>	
+
+</section>
+</form>	
+</body>
+</html>
