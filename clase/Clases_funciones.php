@@ -1,4 +1,3 @@
-
 <?php
 //CLASE N°1
 class Local {
@@ -93,4 +92,9 @@ class Login{
 $objLogin= new Login;
 $objLogin->Mostrar();
 
+
+
+
 ?>
+
+
