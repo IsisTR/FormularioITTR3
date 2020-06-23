@@ -5,19 +5,19 @@ extract($_REQUEST);
 class PersonasControlador
 {
 	public function index(){
-		$db=new clasedb();
-		$conex=$db->conectar();
+		$db=new clasedb();   //Se instancia class clasedb, creando el objeto db
+		$conex=$db->conectar();  //la propiedad conex llamara al método conectar, es decir, conectará con la base de datos programacion
 
-		$sql="SELECT * FROM datos_personales";
+		$sql="SELECT * FROM datos_personales"; //la propiedad $sql creará una consulta a la tabla datos_personales
 
-		$res=mysqli_query($conex,$sql);
-		$campos=mysqli_num_fields($res);
-		$filas=mysqli_num_rows($res);
-		$i=0;
-		$datos[]=array();
+		$res=mysqli_query($conex,$sql); //se crea una consulta a la base de datos programacion($conex), devolviendo resultados de la tabla: datos_personales($sql), mediante la propiedad $res
+		$campos=mysqli_num_fields($res); //la propiedad $campos contendrá el número de campos que tiene la tabla datos_personales
+		$filas=mysqli_num_rows($res);  //la propiedad $filas contendrá el número de filas que tiene la tabla datos_personales
+		$i=0; //se inicializa la varaible $i desde 0, para el bucle while
+		$datos[]=array(); //se crea un array mediante la propiedad $datos
 
-		while($data=mysqli_fetch_array($res)){
-			for ($j=0; $j < $campos; $j++){
+		while($data=mysqli_fetch_array($res)){   ///crea las filas,es decir, los registros...
+			for ($j=0; $j < $campos; $j++){     ///crea campos, osea nombre, apellido, ci...
 				$datos[$i][$j]=$data[$j];
 			}
 			$i++;
