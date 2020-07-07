@@ -1,6 +1,6 @@
 <?php
 include("../clasedb.php");
-extract($_REQUEST);
+extract($_REQUEST);//extrayendo variables del url, tanto POST como GET
 
 class PersonasControlador
 {
@@ -8,7 +8,7 @@ class PersonasControlador
 		$db=new clasedb();   //Se instancia class clasedb, creando el objeto db
 		$conex=$db->conectar();  //la propiedad conex llamara al método conectar, es decir, conectará con la base de datos programacion
 
-		$sql="SELECT * FROM datos_personales"; //la propiedad $sql creará una consulta a la tabla datos_personales
+		$sql="SELECT * FROM datos_personales"; //la propiedad $sql creará una consulta SQL a la tabla datos_personales
 
 		$res=mysqli_query($conex,$sql); //se crea una consulta a la base de datos programacion($conex), devolviendo resultados de la tabla: datos_personales($sql), mediante la propiedad $res
 		$campos=mysqli_num_fields($res); //la propiedad $campos contendrá el número de campos que tiene la tabla datos_personales
@@ -22,39 +22,39 @@ class PersonasControlador
 			}
 			$i++;
 		}
-		mysqli_close($conex);
+		mysqli_close($conex);//la conexion a la base de datos por medio de $conex se cierra
 			header("Location: index.php?filas=".$filas."&campos=".$campos."&data=".serialize($datos));
 	}
     public function modificar(){
-        extract($_REQUEST);
-        $db=new clasedb();
-        $conex=$db->conectar();
-        $sql="SELECT * FROM datos_personales WHERE id=".$id_persona."";
-		$res=mysqli_query($conex,$sql);
-        $data=mysqli_fetch_array($res);
+        extract($_REQUEST);//extrayendo variables del url, tanto POST como GET
+        $db=new clasedb();//inicializamos la clase db con el objeto $db
+        $conex=$db->conectar(); //conectando con la base de datos con la propiedad $conex
+        $sql="SELECT * FROM datos_personales WHERE id=".$id_persona.""; //se selecciona todos los datos de la tabla datos_personales, siempre y cuando el id de la tabla datos_personale sea igual la variable id_persona que retorna la url
+		$res=mysqli_query($conex,$sql); //hacemos la consulta a la base de datos con mysqli_query con los parametros $conex(conexion a la base de datos) y $sql(la sentencia)
+        $data=mysqli_fetch_array($res); // la variable $data guarda como un array los registros obtenidos de la consulta para mostrarlos en el archivo editar.php y saber que estamos editando
         
-        header("Location: editar.php?data=".serialize($data));
+        header("Location: editar.php?data=".serialize($data)); //redirigimos a el archivo editar.php
     }
 
     public function actualizar(){
-        extract($_REQUEST);
-        $db=new clasedb();
-        $conex=$db->conectar();
+        extract($_REQUEST);//extrayendo variables del url, tanto POST como GET
+        $db=new clasedb();//inicializamos la clase db con el objeto $db
+        $conex=$db->conectar(); //conectando con la base de datos con la propiedad $conex
 
         $sql="UPDATE datos_personales set 
         nombres='$nombres',
         apellidos='$apellidos',
         c_i='$c_i'
-        WHERE id=$id_persona";
-       	$res=mysqli_query($conex,$sql);
-        	if ($res) {
+        WHERE id=$id_persona"; //se guarda en la propiedad $sql la sentencia para actualizar los datos extraidos del POST con la palabra reservada UPDATE, siempre y cuando el id de la tabla datos_personales sea igual al id_persona que nos retorna la url
+       	$res=mysqli_query($conex,$sql); //se hace la consulta a la base de datos 
+        	if ($res) { //si $res es verdadero o true,es decir, que envio un resultado el scrip mostrará un mensaje de Modificado y redirigirá al index
         		?>
         		<script>
         			alert("REGISTRO MODIFICADO");
         			window.location="PersonasControlador.php?operacion=index";
         		</script>
         		<?php
-        	}else{
+        	}else{     //En caso contrario el mensaje dará error y redirigirá al index
         		?>
         		<script>
         			alert("ERROR AL MODIFICAR REGISTRO");
@@ -68,14 +68,14 @@ class PersonasControlador
 
     public function eliminar(){
 
-    	extract($_REQUEST);//extrayendo variables del url
-    	$db=new clasedb();
-    	$conex=$db->conectar();//conectando con la base de datos
+    	extract($_REQUEST);//extrayendo variables del url, tanto POST como GET
+    	$db=new clasedb();//inicializamos la clase db con el objeto $db
+    	$conex=$db->conectar();//conectando con la base de datos con la propiedad $conex
 
-    	$sql="DELETE FROM datos_personales WHERE id=".$id_persona;
+    	$sql="DELETE FROM datos_personales WHERE id=".$id_persona; //gurdamos en la propiedad sql la sentencia SQL para borrar los registros de la tabla datos_personales mediante la palabra reservada DELETE, sí el id de la tabla es igual al id_persona que retorna la url
 
-		$res=mysqli_query($conex,$sql);
-		if ($res)
+		$res=mysqli_query($conex,$sql); //se hace la consulta a la base de datos con la conexion y la sentencia
+		if ($res) //si $res es verdadero o true,es decir, que envio un resultado el scrip mostrará un mensaje de Registro eliminado y redirigirá al index
 		 {
 			?>
 			<script type="text/javascript">
@@ -83,7 +83,7 @@ class PersonasControlador
 				window.location="PersonasControlador.php?operacion=index";
 			</script>
 			<?php
-		}else{
+		}else{  //En caso contrario el mensaje dará registro no eliminado y redirigirá al index
 			?>
 			<script type="text/javascript">
 				alert("REGISTRO NO ELIMINADO");
@@ -95,27 +95,27 @@ class PersonasControlador
 
 
 	static function controlador($operacion){
-		$persona=new PersonasControlador();
-	switch ($operacion) {
-		case 'index':
+		$persona=new PersonasControlador(); //inicializamos la clase PersonasControlador con el objeto $persona
+	switch ($operacion) { 
+		case 'index'://en el caso que el atributo $operacion me retorne index se ejecutará la funcion index de la clase PersonasControlador
 			$persona->index();
 			break;
-		case 'registrar':
+		case 'registrar'://en el caso que el atributo $operacion me retorne registrar se ejecutará la funcion registrar de la clase PersonasControlador
 			$persona->registrar();
 			break;
-		case 'guardar':
+		case 'guardar'://en el caso que el atributo $operacion me retorne guardar se ejecutará la funcion guardar de la clase PersonasControlador
 			$persona->guardar();
 			break;
-		case 'modificar':
+		case 'modificar': //en el caso que el atributo $operacion me retorne modificar se ejecutará la funcion modificar de la clase PersonasControlador
 			$persona->modificar();
 			break;
-		case 'actualizar':
+		case 'actualizar'://en el caso que el atributo $operacion me retorne actualizar se ejecutará la funcion actulizar de la clase PersonasControlador
 			$persona->actualizar();
 			break;
-		case 'eliminar':
+		case 'eliminar': //en el caso que el atributo $operacion me retorne eliminar se ejecutará la funcion eliminar de la clase PersonasControlador
 			$persona->eliminar();
 			break;
-		default:
+		default: //en el caso que el atributo $operacion retorne otra funcion se ejecutará un default con el script: no existe la ruta
 			?>
 				<script>
 					alert("No existe la ruta");

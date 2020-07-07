@@ -17,14 +17,20 @@ $data=unserialize($data);
 <table align="center">
 <a href="../index.php">Inicio</a>
 <center><a href="PersonasControlador.php?operacion=registrar">Registrar</a></center>
-	<tr><th>Nro</th><th>Nombres</th><th>Apellidos</th><th>Cedula</th><th>Opciones</th></tr>
+	<tr>
+		<th>Nro</th>
+		<th>Nombres</th>
+		<th>Apellidos</th>
+		<th>Cedula</th>
+		<th>Opciones</th>
+	</tr>
 	<?php $num=1;
 		for ($i=0; $i < $filas; $i++) {
 			echo "<tr>";
 		?>
-<td><?=$num?></td>
+	<td><?=$num?></td>
 	<?php for ($j=1; $j < $campos; $j++) { ?>
-		<td><?=$data[$i][$j]?></td>
+	<td><?=$data[$i][$j]?></td>
 
 <?php	} ?>
 <td><a href="PersonasControlador.php?operacion=modificar&id_persona=<?=$data[$i][0]?>">Modificar</a>
